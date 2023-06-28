@@ -1,4 +1,4 @@
-package interview_challenge.interview_challenfe;
+package interview_challenge.web;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloController {
+public class Controller {
     @Autowired
     NamedParameterJdbcTemplate jdbcTemplate;
 

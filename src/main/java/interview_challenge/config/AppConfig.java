@@ -1,4 +1,4 @@
-package interview_challenge.interview_challenfe;
+package interview_challenge.config;
 
 import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 import org.springframework.beans.factory.annotation.Autowired;

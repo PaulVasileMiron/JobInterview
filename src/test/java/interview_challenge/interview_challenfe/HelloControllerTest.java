@@ -1,6 +1,9 @@
 package interview_challenge.interview_challenfe;
 
 import com.jayway.restassured.RestAssured;
+
+import interview_challenge.App;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
