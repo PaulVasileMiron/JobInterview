@@ -1,10 +1,16 @@
-package interview_challenge.web.model;
+package simular_products.web.model;
 
 import java.math.BigDecimal;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+/**
+ * Class ProductDetail
+ * @author Paul Vasile Miron
+ */
+@Getter
+@Setter
 public class ProductDetail {
 	private String id;
 	private String name;

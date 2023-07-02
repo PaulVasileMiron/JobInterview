@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>interview_challenge</groupId>
-	<artifactId>interview_challenfe</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>SimilarProducts</groupId>
+	<artifactId>SimilarProducts</artifactId>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>Spring Boot Blank Project (from https://github.com/making/spring-boot-blank)</name>
+	<name>SimilarProducts</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -39,6 +39,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
@@ -51,9 +56,20 @@
 			<artifactId>spring-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
