@@ -31,8 +31,49 @@ Por ultimo tenemos la carpeta de src/test donde se realizan los test de nuestro 
 Test Servicio:
   - La primera clase que he testeado es la clase del servicio. Para poder testear se necesita importar la clase a testear con un @Autowired y en este caso ya que utiliza rest template se necesita mockear el bean (@MockBean). Esto se realiza debido a que no se quiere realizar la llamada real a otro servicio.
   - El primer test que se realiza es el funcionamiento correcto del metedo. Para ello se necesita indicar al servicio que tiene que devolver en la llamadas rest mediante los metodos when y then return. Despues se realiza la llamada a nuestro servicio y se comprueba que se han realizado las llamada de rest template.
+  - Tambien se realiza un comprobacion de los errores en la llamada rest
 Test Controlador:
   - Para este test necesitamos mockear la interfaz y importar webapplicationcontext y mockmvc para poder realizar las llamadas a nuestro servicio.
   - Ademas se necesita realziar un seteo antes de cada uno de los test que queremos realizar (BeforeEach).
   - Por ultimo se mockea la llamada a la interfaz indicando lo que tiene que devolver y se comprueba que se ha completado con exito la llamada al controlador.
 Tambien se dispone de test adicionales para las clases que guardan informacion. Aunque estas clases solo tienen set y get y comprobacion de que los objetos son iguales.
+
+Para poder comprobar el funcionamiento del servicio en este caso se ha optado por utilizar la herramienta de postman que simula las request de los clientes. Para ello se tiene que contruir una request de tipo get y que utilice esta url: "http://localhost:5000/product/:{productId}/similar".
+Al introducir la url aparece el propio campo de productId en el apartado de PathVariable y se podra setear el valor que se desea. Las posibles respuestas son las siguientes.
+  - Si todo se recibe bien y no ha habido ningun problema (200): ProductId -> 1 
+{
+    "listSimilarProduct": [
+        {
+            "id": "2",
+            "name": "Dress",
+            "price": 19.99,
+            "availability": true
+        },
+        {
+            "id": "3",
+            "name": "Blazer",
+            "price": 29.99,
+            "availability": false
+        },
+        {
+            "id": "4",
+            "name": "Boots",
+            "price": 39.99,
+            "availability": true
+        }
+    ]
+}
+
+Si no se encuentra ningun producto similar (404): Product id -> 0
+{
+    "timestamp": "2023-07-03T14:15:15.626+00:00",
+    "status": 404,
+    "error": "Not Found",
+    "path": "/product/0/similar"
+}
+
+Respecto al despligue en docker. No tengo conocimientos y necesitaria mas tiempo ya nunca en trabajado en ello. Pero he intendo realizar un despliegue. Los pasos que he realizado son los siguientes:
+  1. He tenido que realizar un build. Se tiene que hacer click en run y luego build... Despues se tiene que escribir el goal clean install package que genera un archivo de tipo .jar
+  2. Una vez se tiene el archivo .jar se genera un archivo dockerfile en el que se especifica en la primera linea el tipo de framework, en la segunda linea en que ubicacion se encuentra el archivo .jar, en la tercera linea se realiza un copia de nuestro .jar a un jar que se encuentra en el contenedor que vamos a generar, y por ultimo se indica los posible tipos de entrada
+  3. El siguiente paso en generar el contendor con este comando "docker build -t jobinterview ." 
+  4. En este ultimo punto se arranca el contenedor con este comando "docker run -p 5000:5000 jobinterview" en el que se indica el puerto de entrada a nuestro contendor.
