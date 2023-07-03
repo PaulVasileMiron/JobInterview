@@ -12,9 +12,9 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class RestTemplateConfiguration {
 
-	private static final int TIMEOUT = 5000; // timeout in milliseconds
+	private static final int TIMEOUT = 2000; // timeout in milliseconds
 
-	@Bean("RestTemplate")
+	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
 		requestFactory.setConnectTimeout(TIMEOUT);
