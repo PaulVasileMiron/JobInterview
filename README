@@ -2,3 +2,9 @@ El proyecto se basa en una arquitectura de capas pero sin la capa de persistenci
 Diferentes especificaciones de clase de controlador:
   - Esta clase tiene dos etiquetas de clase. @RestController (etiqueta de Spring) que se usa para identificar esta clase como un controlador que recibe la request y la etiqueta @Slf4j que se usa para poder utilizar logs (escribir en la consola).
   - El controlador solo tiene un método que aceptada request de tipo get.
+  - Las etiquetas de esta metedo tiene diferente uso. Las etiquetas de @Operation y @ApiResponses se utilizan para proporcionar informacion al swaggger. En cambio la etiqueta de @RequestMapping se utiliza para indicar la ruta a traves de la cual el usuario accede a nuestro servicio.
+  - El metodo como entrada un unico campo que es un @PathVariable y este campo viene en la ruta ({productId}).
+  - Por ultimo tenemos la llamada a una interfaz que se conecta con la capa de negocio. Para poder comunicarnos con esta interfaz necesitamos importarla utilizando la etiqueta @Autowired.
+
+Cabe destacar que se utiliza interfaces para conseguir obtener desacoplamiento. A continuacion, tenemos la capa de negocio con las siguentes especificacione:
+  -
