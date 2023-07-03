@@ -1,1 +1,4 @@
-Readme
+El proyecto se basa en una arquitectura de capas pero sin la capa de persistencia. La primera capa que se ha implementado es la capa de presentación, esta capa tiene solo una clase llamada Controller. El controlador recibe las request del cliente y se conecta con la capa de negocio. 
+Diferentes especificaciones de clase de controlador:
+  - Esta clase tiene dos etiquetas de clase. @RestController (etiqueta de Spring) que se usa para identificar esta clase como un controlador que recibe la request y la etiqueta @Slf4j que se usa para poder utilizar logs (escribir en la consola).
+  - El controlador solo tiene un método que aceptada request de tipo get.
