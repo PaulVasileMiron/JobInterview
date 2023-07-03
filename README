@@ -7,4 +7,20 @@ Diferentes especificaciones de clase de controlador:
   - Por ultimo tenemos la llamada a una interfaz que se conecta con la capa de negocio. Para poder comunicarnos con esta interfaz necesitamos importarla utilizando la etiqueta @Autowired.
 
 Cabe destacar que se utiliza interfaces para conseguir obtener desacoplamiento. A continuacion, tenemos la capa de negocio con las siguentes especificacione:
-  -
+  - Lo primero se dispone de la etiqueta de @Service (etiqueta de Spring) que indica que la clase es un servicio.
+  - Dentro de esta clase tenemos que importar la clase de RestTemplate para poder comunicarnos con otro servicio y tenemos 3 metodos donde 2 de ellos son privados y 1 publico.
+  - El metodo publico se encarga de inicializar todas las variables necesarias para la implentacion del servicio y tambien, se encarga de realizar las llamadas a los metodos privados.
+  - El metodo privado findProductDetail se encarga de obtener lo detalles de un producto a traves de un id proporcionado mediante una llamada rest de tipo get.
+  - El metodo privado findSimiliarProductId se encarga de obtener una lista con los id de todos los productos que son similares al introducido por el cliente.
+  - En los metodos privado se tiene un control de errores donde se lanza una excepcion en caso de algun problema.
+
+Por ultimo tenemos un paquete de configuraciones donde se implementara el swagger:
+  - El swagger se compone se de dos beans que se cargaran al ejecutar el servicio.
+  - El primer bean se encarga de indicar donde se encuentra el controlador que se quiere exponer al cliente.
+  - El segundo bean se añaden diferentes caracteristicas como el nombre del proyecto, version o un descripcion del servicio.
+  
+Y el paquete de configuracion tambien tiene una clase de configuracion del rest template:
+  - En este caso se tiene una unica configuracion en la que se establece el tiempo maximo de espera y se inicia el rest template.
+Tambien se tiene una clase en la que se inica el servicio a traves de un main (App.java).
+
+La siguiente carpeta que nos centraremos ahora es la carpeta de src/resources:
